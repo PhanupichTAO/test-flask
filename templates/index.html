@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block content %}
+<h2>จำแนกคุณภาพมะม่วงด้วยการประมวลผลภาพ</h2>
+<hr class="new">
+<div>
+    <div class="how_to">
+        <!-- <img src="{{ url_for('static', filename='images/rmuti_logo.png') }}"class="image" alt="rmuti_logo"> -->
+        <!-- <img src="{{ url_for('static', filename='images/BG.png') }}"class="image_logo" alt="rmuti_logo"> -->
+        <!--<img src="{{ url_for('static', filename='images/rmuti_logo.png') }}"class="image" alt="rmuti_logo"> -->
+    </div>
+</div>
+
+<br>
+
+<div class="container_uploads">
+    <div>
+        <form id="upload-file" method="post" enctype="multipart/form-data">
+            <label for="imageUpload" class="upload-label">
+                เลือก...
+            </label>
+            <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+        </form>
+    
+        <div class="image-section" style="display:none;">
+            <div class="img-preview">
+                <div id="imagePreview">
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary btn-lg " id="btn-predict">ประมวลผลภาพ</button>
+            </div>
+        </div>
+    
+        <div class="loader" style="display:none;"></div>
+        
+        <h3 id="result">
+            <span> </span>
+        </h3>    
+    </div>
+
+</div>
+<br>
+<br>
+<hr class="new">
+{% endblock %}
