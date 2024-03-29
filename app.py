@@ -131,11 +131,6 @@ def show_image():
     print(str(img))
     return img
 
-@app.route('/', methods=['GET'])
-def index():
-    # หน้า page หลัก
-    return render_template('index.html')
-
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -158,6 +153,13 @@ def upload():
 
     # delete_image()  #ลบไฟล์รูปภาพจากโฟลเดอร์ uploads   
     return None
+
+@app.route('/', methods=['GET'])
+def index():
+    # หน้า page หลัก
+    return render_template('index.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
