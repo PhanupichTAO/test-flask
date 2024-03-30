@@ -1,6 +1,19 @@
-from flask import Flask, jsonify, request, render_template
-app = Flask(__name__)
+import os
+import glob
 
+# import numpy as np
+# # Keras
+# from keras.models import load_model
+# from keras.preprocessing import image
+# import keras.utils as image
+# from PIL import Image
+# import cv2
+
+from flask import Flask, jsonify, request, render_template
+from werkzeug.utils import secure_filename
+
+
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
