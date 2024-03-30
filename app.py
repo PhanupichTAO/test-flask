@@ -2,18 +2,18 @@ from __future__ import division, print_function
 # coding=utf-8
 import os
 
-import glob
-import numpy as np
+# import glob
+# import numpy as np
 # Keras
 from keras.models import load_model
 from keras.preprocessing import image
 import keras.utils as image
-from PIL import Image
+# from PIL import Image
 
 from flask import Flask, jsonify, redirect, url_for, request, render_template
-from werkzeug.utils import secure_filename
+# from werkzeug.utils import secure_filename
 
-import cv2
+# import cv2
 
 
 app = Flask(__name__, static_url_path='/static')
