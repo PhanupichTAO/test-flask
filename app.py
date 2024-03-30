@@ -15,14 +15,21 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_url_path='/static')
 
+
+#ลบไฟล์รูปภาพจากโฟลเดอร์ uploads  
+def delete_image():
+    files = glob.glob(os.path.join('static/uploads/*'))
+    for file in files:
+        os.remove(file)
+
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':         # รับไฟล์ของ post จาก index.html 
-        # delete_image() 
-        # f = request.files['file']        # เซฟรูปภาพไว้ที่ folder /uploads
-        # basepath = os.path.dirname(__file__)
-        # file_path = os.path.join(basepath, 'static/uploads', secure_filename(f.filename))
-        # f.save(file_path) 
+        delete_image() 
+        f = request.files['file']        # เซฟรูปภาพไว้ที่ folder /uploads
+        basepath = os.path.dirname(__file__)
+        file_path = os.path.join(basepath, 'static/uploads', secure_filename(f.filename))
+        f.save(file_path) 
 
         # remove_background()
 
