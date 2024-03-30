@@ -10,7 +10,9 @@ from keras.preprocessing import image
 import keras.utils as image
 # from PIL import Image
 
-from flask import Flask, jsonify, redirect, url_for, request, render_template
+# from flask import Flask, jsonify, redirect, url_for, request, render_template
+from flask import Flask
+
 # from werkzeug.utils import secure_filename
 
 # import cv2
