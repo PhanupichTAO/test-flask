@@ -19,8 +19,8 @@ import cv2
 app = Flask(__name__, static_url_path='/static')
 
 
-model = load_model('model/model__data_aug_BGR_RGB.h5') #ใช้อันนี้
-model.make_predict_function()
+# model = load_model('model/model__data_aug_BGR_RGB.h5') #ใช้อันนี้
+# model.make_predict_function()
 
 
 
