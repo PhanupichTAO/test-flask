@@ -156,7 +156,8 @@ def upload():
 @app.route('/', methods=['GET'])
 def index():
     # หน้า page หลัก
-    return render_template('index.html')
+    # return render_template('index.html')
+    return "Hello World! 5555555555"
 
 
 
