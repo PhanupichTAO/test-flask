@@ -153,12 +153,14 @@ def upload():
     # delete_image()  #ลบไฟล์รูปภาพจากโฟลเดอร์ uploads   
     return None
 
-@app.route('/', methods=['GET'])
-def index():
-    # หน้า page หลัก
-    # return render_template('index.html')
-    return "Hello World! 5555555555"
+# @app.route('/', methods=['GET'])
+# def index():
+#     # หน้า page หลัก
+#     return render_template('index.html')
 
+@app.route('/')
+def hello():
+    return "Hello World! 5555555555"
 
 
 if __name__ == '__main__':
