@@ -57,23 +57,7 @@ def upload():
         f.save(file_path) 
 
         # remove_background()
-        files = glob.glob(os.path.join('static/uploads/*'))
-        for file in files:
-            imgInput = cv2.imread(file)
-            imgInput = cv2.resize(imgInput, (300, 300))
-            height, width = imgInput.shape[:2]
-            mask = np.zeros(imgInput.shape[:2], np.uint8)
-            backgroundModel = np.zeros((1, 65), np.float64)
-            forgroundModel = np.zeros((1, 65), np.float64)
-            rect = (10, 10, width-30, height-30)
-            cv2.grabCut(imgInput, mask, rect, backgroundModel,
-                        forgroundModel, 5, cv2.GC_INIT_WITH_RECT)
-            mask = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
-            image_1 = imgInput*mask[:, :, np.newaxis]
-            background = imgInput - image_1
-            background[np.where((background > [0, 0, 0]).all(axis=2))] = [0, 0, 0]
-            imgFinal = background + image_1
-            cv2.imwrite(file,imgFinal)     
+  
 
         # crop_image(file_path)
         # results, accuracies, accuracy_percentage = model_predict()  # Get predictions and accuracies
