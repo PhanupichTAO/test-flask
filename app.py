@@ -8,8 +8,8 @@ import glob
 # import keras.utils as image
 # from PIL import Image
 
-import numpy as np
-import cv2
+# import numpy as np
+# import cv2
 
 from flask import Flask, jsonify, request, render_template
 from werkzeug.utils import secure_filename
