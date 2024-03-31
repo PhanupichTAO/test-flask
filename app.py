@@ -66,7 +66,7 @@ def upload():
         #         for result, accuracy, accuracy_average, img_file in zip(results, accuracies, accuracy_percentage, img)]
 
         # return jsonify(data)  # Return JSON response containing results and accuracies
-        return None
+        return True
 
     return None
 
