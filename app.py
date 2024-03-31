@@ -1,16 +1,15 @@
-import os
-import glob
 
-
-# # Keras
-# from keras.models import load_model
 # from keras.preprocessing import image
 # import keras.utils as image
 # from PIL import Image
 
+# from keras.models import_ load_model
 # import numpy as np
 # import cv2
 
+
+import os
+import glob
 from flask import Flask, jsonify, request, render_template
 from werkzeug.utils import secure_filename
 
