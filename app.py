@@ -3,7 +3,7 @@ import glob
 
 
 # # Keras
-# from keras.models import load_model
+from keras.models import load_model
 # from keras.preprocessing import image
 # import keras.utils as image
 # from PIL import Image
@@ -16,6 +16,9 @@ from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__, static_url_path='/static')
+
+model = load_model('model/model__data_aug_BGR_RGB.h5') #ใช้อันนี้
+model.make_predict_function()
 
 #ลบพื้นหลังของภาพ
 def remove_background():
