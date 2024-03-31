@@ -3,7 +3,7 @@ import glob
 
 
 # # Keras
-from keras.models import load_model
+# from keras.models import load_model
 # from keras.preprocessing import image
 # import keras.utils as image
 # from PIL import Image
