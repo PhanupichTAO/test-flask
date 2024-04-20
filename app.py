@@ -46,6 +46,10 @@ app = Flask(__name__, static_url_path='/static')
 #     files = glob.glob(os.path.join('static/uploads/*'))
 #     for file in files:
 #         os.remove(file)
+@app.route('/', methods=['GET'])
+def index():
+    # หน้า page หลัก
+    return render_template('index.html')
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -71,10 +75,7 @@ def upload():
     return None
 
 
-@app.route('/', methods=['GET'])
-def index():
-    # หน้า page หลัก
-    return render_template('index.html')
+
 
 if __name__ == '__main__':
     # app.run(debug=True)
