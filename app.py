@@ -25,43 +25,43 @@ model = tf.keras.models.load_model('model/model__data_aug_BGR_RGB.h5')
 
 
 #funtion ทำนายระดับความสุกของมะม่วง
-# def model_predict():
-#     image_path = 'static/uploads'
-#     results = []
-#     accuracies = []  # List to store accuracy values as percentages
-#     total_samples = 0  # Variable to count total samples for accuracy calculation
+def model_predict():
+    image_path = 'static/uploads'
+    results = []
+    accuracies = []  # List to store accuracy values as percentages
+    total_samples = 0  # Variable to count total samples for accuracy calculation
 
-#     for images in glob.iglob(f'{image_path}/*'):
-#         img_predict = cv2.imread(images , cv2.COLOR_BGR2RGB)
-#         img_predict = cv2.resize(img_predict ,(128,128))
-#         img_predict = np.array(img_predict).astype('float32')
-#         img_predict /= 255
-#         img_predict = np.expand_dims(img_predict, axis=0)
-#         class_name = ['สุก','ห่าม','ดิบ']
-#         prediction = model.predict(img_predict)[0]
-#         result = class_name[np.argmax(prediction)]
-#         accuracy = float(np.max(prediction)) * 100  # Convert accuracy to percentage
-#         results.append(result)
-#         accuracies.append(f"{accuracy:.2f}%")  # Format accuracy as percentage with two decimal places
-#         total_samples += 1
+    for images in glob.iglob(f'{image_path}/*'):
+        img_predict = cv2.imread(images , cv2.COLOR_BGR2RGB)
+        img_predict = cv2.resize(img_predict ,(128,128))
+        img_predict = np.array(img_predict).astype('float32')
+        img_predict /= 255
+        img_predict = np.expand_dims(img_predict, axis=0)
+        class_name = ['สุก','ห่าม','ดิบ']
+        prediction = model.predict(img_predict)[0]
+        result = class_name[np.argmax(prediction)]
+        accuracy = float(np.max(prediction)) * 100  # Convert accuracy to percentage
+        results.append(result)
+        accuracies.append(f"{accuracy:.2f}%")  # Format accuracy as percentage with two decimal places
+        total_samples += 1
 
-#     # Calculate overall accuracy based on predictions
-#     accuracy_percentage = [0, 0, 0]
-#     for result in results:
-#         if result == 'สุก':
-#             accuracy_percentage[0] += 1
-#         elif result == 'ห่าม':
-#             accuracy_percentage[1] += 1
-#         elif result == 'ดิบ':
-#             accuracy_percentage[2] += 1
+    # Calculate overall accuracy based on predictions
+    accuracy_percentage = [0, 0, 0]
+    for result in results:
+        if result == 'สุก':
+            accuracy_percentage[0] += 1
+        elif result == 'ห่าม':
+            accuracy_percentage[1] += 1
+        elif result == 'ดิบ':
+            accuracy_percentage[2] += 1
 
-#     accuracy_percentage = [f"{(count / total_samples) * 100:.2f}%" for count in accuracy_percentage]
+    accuracy_percentage = [f"{(count / total_samples) * 100:.2f}%" for count in accuracy_percentage]
 
-#     print('Predictions:', results)
-#     print('Accuracies:', accuracies)
-#     print('Overall Accuracy:', accuracy_percentage)
+    print('Predictions:', results)
+    print('Accuracies:', accuracies)
+    print('Overall Accuracy:', accuracy_percentage)
 
-#     return results, accuracies, accuracy_percentage
+    return results, accuracies, accuracy_percentage
 
 def crop_image(img_path):
     # Reading an image in default mode:
@@ -149,12 +149,12 @@ def upload():
         remove_background()
 
         crop_image(file_path)
-        # results, accuracies, accuracy_percentage = model_predict()  # Get predictions and accuracies
-        # img = show_image()
-        # data = [{'result': result, 'accuracy': accuracy, 'accuracy_average': accuracy_average, 'img_file': img_file}
-        #         for result, accuracy, accuracy_average, img_file in zip(results, accuracies, accuracy_percentage, img)]
+        results, accuracies, accuracy_percentage = model_predict()  # Get predictions and accuracies
+        img = show_image()
+        data = [{'result': result, 'accuracy': accuracy, 'accuracy_average': accuracy_average, 'img_file': img_file}
+                for result, accuracy, accuracy_average, img_file in zip(results, accuracies, accuracy_percentage, img)]
 
-        # return jsonify(data)  # Return JSON response containing results and accuracies
+        return jsonify(data)  # Return JSON response containing results and accuracies
 
     # delete_image()  #ลบไฟล์รูปภาพจากโฟลเดอร์ uploads
     return None
