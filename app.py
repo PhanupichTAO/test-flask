@@ -4,7 +4,7 @@
 # from PIL import Image
 
 #แก้ไข library เพื่อให้สามารถ deploy ได้
-from keras.models import load_model
+# from keras.models import load_model
 import numpy as np
 import cv2
 
@@ -17,8 +17,8 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_url_path='/static')
 
-model = load_model('model/model__data_aug_BGR_RGB.h5') #ใช้อันนี้
-model.make_predict_function()
+# model = load_model('model/model__data_aug_BGR_RGB.h5') #ใช้อันนี้
+# model.make_predict_function()
 
 #ลบพื้นหลังของภาพ
 def remove_background():
