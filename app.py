@@ -4,7 +4,7 @@
 # from PIL import Image
 
 #แก้ไข library เพื่อให้สามารถ deploy ได้
-from keras.models import load_model
+# from keras.models import load_model
 import numpy as np
 import cv2
 
